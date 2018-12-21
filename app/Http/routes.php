@@ -12,6 +12,7 @@
 */
 
 use App\Task;
+use Illuminate\Http\Request;
 
  Route::get('/', function () {
     //
@@ -44,7 +45,8 @@ use App\Task;
 });
 
 
- Route::delete('/task/{task}', function (Task $task) {
-    //
+Route::delete('/task/{task}', function (Task $task) {
+  $task->delete();
 
-  });
+  return redirect('/');
+});
